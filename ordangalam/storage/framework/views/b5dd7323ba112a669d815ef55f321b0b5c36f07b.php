@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+   <link rel="stylesheet" type="text/css" href="<?php echo e(url('css/bootstrap.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(url('css/style.css')); ?>">
+    <script type="text/javascript" src="<?php echo e(('js/jquery-3.3.1.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(('js/bootstrap.js')); ?>"></script>
+    
+</head>
+<body>
+<nav class="navbar nav-link navbar-fix navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">FORDA MALANG</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+       <?php if(auth()->guard()->check()): ?>
+       <li class="nav-item">
+        <a class="nav-link" href="about">About</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="home">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item ">
+        <a class="nav-link" href="daftarOrda">Daftar Organisasi </a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="<?php echo e(route('logout')); ?>"
+                 onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
+                                        </form>
+      </li>
+      <?php else: ?>
+      <li class="nav-item ">
+        <a class="nav-link" href="about">About</a>
+      </li>
+       <li>
+      <a class="nav-link" href="daftarOrda">Daftar Organisasi</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="register">Register <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="<?php echo e(route('login')); ?>">Login <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+     <?php endif; ?>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</body>
+</html>
+
