@@ -1,2 +1,2 @@
 # ordangalam
-a a website built using Laravel framework for managing student forum and organizations in Malang city 
+a website built using Laravel framework for managing student forum and organizations in Malang city 
